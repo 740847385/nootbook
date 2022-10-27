@@ -1,5 +1,10 @@
 spring:
   application:
     name: notebook-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blogDB?useUnicode=true&characterEncoding=utf-8
 server:
   port: 1111
+
+

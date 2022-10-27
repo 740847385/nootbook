@@ -1,14 +1,15 @@
 package com.mendas.notebook.controller;
 
 import com.mendas.notebook.utils.IdempotentUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Administrator
  */
+@Slf4j
 @RestController
 @RequestMapping("test")
 public class HelloController {
@@ -24,7 +25,7 @@ public class HelloController {
         if (!IdempotentUtils.judge(id, this.getClass())) {
             return "执行失败";
         }
-        System.out.println("添加用户ID:" + id);
+        log.info("添加用户ID:" + id);
         return "hello world " + id;
 
     }
